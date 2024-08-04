@@ -5,6 +5,7 @@
     <title>Spring</title>
 </head>
 <body>
+    <%@ include file="header.jsp"%>
     <h1>Hello, Spring World!</h1>
 </body>
 </html>
