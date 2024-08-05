@@ -16,7 +16,7 @@ public class TodoSaveControllerV1 {
     private TodoDtoListV1 todoDtoListV1 = TodoDtoListV1.getInstance();
 
     @RequestMapping(value = "/todo/form/save", method = RequestMethod.GET)
-    public String process(HttpServletRequest request, HttpServletResponse response) {
+    public String todoSave(HttpServletRequest request, HttpServletResponse response) {
         log.info("================> 회원 추가 Request 호출, /member/form/save");
 
         String todo = request.getParameter("todo");

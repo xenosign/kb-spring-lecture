@@ -15,7 +15,7 @@ public class TodoShowControllerV1 {
     private TodoDtoListV1 todoList = TodoDtoListV1.getInstance();
 
     @GetMapping("/todo/show")
-    public String process(HttpServletRequest request, HttpServletResponse response) {
+    public String todoShow(HttpServletRequest request, HttpServletResponse response) {
         log.info("================> TODO 리스트 보기 페이지 호출, /todo/show");
 
         request.setAttribute("todoList", todoList.getList());

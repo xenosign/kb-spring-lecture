@@ -14,7 +14,7 @@ public class MemberFormControllerV2 {
     private MemberDtoListV1 memberList = MemberDtoListV1.getInstance();
 
 
-    @GetMapping("/member/form2")
+    @GetMapping("/member/v2/form")
     public String home(HttpServletRequest request, HttpServletResponse response) {
         log.info("================> 회원 추가 페이지 호출, /member/register");
 

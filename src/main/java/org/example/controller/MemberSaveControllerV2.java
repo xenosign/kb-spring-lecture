@@ -19,7 +19,7 @@ public class MemberSaveControllerV2 {
         this.memberList = memberList;
     }
 
-    @RequestMapping("/member/form/save2")
+    @RequestMapping("/member/v2/form/save2")
     public String process(HttpServletRequest request, HttpServletResponse response) {
         log.info("================> 회원 추가 Request 호출, /member/form/save");
 

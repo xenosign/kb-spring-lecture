@@ -22,7 +22,6 @@ public class MemberSaveControllerV1 {
         String name = request.getParameter("name");
 
         memberList.addList(id, name);
-
         request.setAttribute("memberList", memberList.getList());
         return "member-show";
     }

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 @Slf4j
 public class TodoFormControllerV1 {
     @GetMapping("/todo/form")
-    public String home(HttpServletRequest request, HttpServletResponse response) {
+    public String todoForm(HttpServletRequest request, HttpServletResponse response) {
         log.info("================> Todo 추가 페이지 호출, /todo/form");
 
         return "todo-form";
