@@ -1,4 +1,4 @@
-package org.example.controller.member;
+package org.example.controller.member.v1;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 
 @Controller
 @Slf4j
-public class MemberFormControllerV2 {
-    @GetMapping("/member/v2/form")
+public class MemberFormControllerV1 {
+    @GetMapping("/member/form")
     public String home(HttpServletRequest request, HttpServletResponse response) {
         log.info("================> 회원 추가 페이지 호출, /member/register");
 
-        return "member-form2";
+        return "member-form";
     }
 }
