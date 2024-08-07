@@ -12,4 +12,7 @@ public interface MemberMapper {
     void save(MemberDto newMember);
 
     List<MemberDto> findAll();
+
+    @Select("SELECT * FROM members")
+    List<MemberDto> findAll2();
 }
