@@ -21,7 +21,7 @@ public class MemberShowControllerV2 {
 
     @GetMapping("/member/v2/show")
     public String process(HttpServletRequest request, Model model) {
-        log.info("================> 회원 조회 페이지 호출, " + request.getRequestURI());
+        log.info("#### 회원 조회 페이지 호출, " + request.getRequestURI());
 
         model.addAttribute("memberList", memberDtoList.getList());
         return "member-show2";

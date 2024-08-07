@@ -22,10 +22,10 @@ public class TodoControllerV3 {
     }
 
     @GetMapping("/show")
-    public String todoShow(HttpServletRequest request, HttpServletResponse response) {
+    public String todoShow(Model model) {
         log.info("================> TODO 리스트 보기 페이지 호출, /todo/show");
 
-        request.setAttribute("todoList", todoDtoList.getList());
+        model.addAttribute("todoList", todoDtoList.getList());
         return "todo-show3";
     }
 
