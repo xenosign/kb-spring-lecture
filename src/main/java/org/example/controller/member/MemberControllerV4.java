@@ -1,5 +1,6 @@
 package org.example.controller.member;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.dto.member.MemberDtoListV2;
 import org.example.dto.member.MemberRepository;
@@ -16,14 +17,15 @@ import javax.servlet.http.HttpServletResponse;
 
 @Controller
 @Slf4j
+@RequiredArgsConstructor
 @RequestMapping("/member/v4")
 public class MemberControllerV4 {
     private final MemberRepository memberRepository;
 
-    @Autowired
-    public MemberControllerV4(MemberRepository memberRepository)  {
-        this.memberRepository = memberRepository;
-    }
+//    @Autowired
+//    public MemberControllerV4(MemberRepository memberRepository)  {
+//        this.memberRepository = memberRepository;
+//    }
 
     @GetMapping("/show")
     public String memberList(Model model) {

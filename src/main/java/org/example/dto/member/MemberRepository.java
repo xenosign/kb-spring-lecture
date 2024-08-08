@@ -10,14 +10,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-//@RequiredArgsConstructor
+@RequiredArgsConstructor
 public class MemberRepository {
     private final MemberMapper memberMapper;
 
-    @Autowired
-    public MemberRepository(MemberMapper memberMapper) {
-        this.memberMapper = memberMapper;
-    }
+//    @Autowired
+//    public MemberRepository(MemberMapper memberMapper) {
+//        this.memberMapper = memberMapper;
+//    }
 
     public MemberDto save(final MemberDto memberDto) {
         return null;
