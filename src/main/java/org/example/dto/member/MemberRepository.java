@@ -26,8 +26,4 @@ public class MemberRepository {
     public List<MemberDto> findAll() {
         return memberMapper.findAll();
     }
-
-    public List<MemberDto> findAll2() {
-        return memberMapper.findAll2();
-    }
 }

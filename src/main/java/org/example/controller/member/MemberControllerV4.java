@@ -21,7 +21,7 @@ public class MemberControllerV4 {
     private final MemberRepository memberRepository;
 
     @Autowired
-    public MemberControllerV4(MemberRepository memberRepository) {
+    public MemberControllerV4(MemberRepository memberRepository)  {
         this.memberRepository = memberRepository;
     }
 
@@ -29,7 +29,7 @@ public class MemberControllerV4 {
     public String memberList(Model model) {
         log.info("================> 회원 조회 페이지 호출, /member/list");
 
-        model.addAttribute("memberList", memberRepository.findAll2());
+        model.addAttribute("memberList", memberRepository.findAll());
         return "member-show4";
     }
 }
