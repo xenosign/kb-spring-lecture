@@ -22,11 +22,6 @@ import javax.servlet.http.HttpServletResponse;
 public class MemberControllerV4 {
     private final MemberRepository memberRepository;
 
-//    @Autowired
-//    public MemberControllerV4(MemberRepository memberRepository)  {
-//        this.memberRepository = memberRepository;
-//    }
-
     @GetMapping("/show")
     public String memberList(Model model) {
         log.info("================> 회원 조회 페이지 호출, /member/list");

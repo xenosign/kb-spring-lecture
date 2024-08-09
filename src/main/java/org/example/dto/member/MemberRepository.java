@@ -14,11 +14,6 @@ import java.util.List;
 public class MemberRepository {
     private final MemberMapper memberMapper;
 
-//    @Autowired
-//    public MemberRepository(MemberMapper memberMapper) {
-//        this.memberMapper = memberMapper;
-//    }
-
     public MemberDto save(final MemberDto memberDto) {
         return null;
     }
