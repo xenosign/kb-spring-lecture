@@ -14,15 +14,17 @@ import java.util.List;
 public class PostRepository {
     private final PostMapper postMapper;
 
-    public List<MemberDto> findByTitle(String title) {
-        return postMapper.findByTitle(title);
+    public List<PostDto> findByCond(String title, String content) {
+        return postMapper.findByCond(title, content);
     }
-    public List<MemberDto> findAll() {
+
+    public List<PostDto> findAll() {
         return postMapper.findAll();
     }
-    public void save(@Param("title") String title, @Param("content") String content) {
-        System.out.println(title);
-        System.out.println(content);
+
+    public void save(String title, String content) {
+        System.out.println("PostRepository " + title);
+        System.out.println("PostRepository " + content);
         postMapper.save(title, content);
     }
 }

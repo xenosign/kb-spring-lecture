@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
@@ -63,10 +63,14 @@
     </style>
 </head>
 <body>
-<h1>Post List</h1>
+<%@include file="../header2.jsp"%>
+<h1>글 목록</h1>
 
 <form action="/post/v1/search" method="get">
-    <input type="text" name="query" placeholder="검색어를 입력하세요">
+    <label for="title">제목 검색</label>
+    <input type="text" name="title" id="title" placeholder="제목에서 찾을 단어 입력">
+    <label for="content">/ 내용 검색</label>
+    <input type="text" name="content" id="content" placeholder="내용에서 찾을 단어 입력">
     <input type="submit" value="검색">
 </form>
 

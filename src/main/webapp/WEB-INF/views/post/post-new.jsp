@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -79,8 +79,8 @@
     </style>
 </head>
 <body>
-<h1>Create New Post</h1>
-
+<%@include file="../header2.jsp"%>
+<h1>글 작성</h1>
 <form action="/post/v1/new" method="post">
     <label for="title">제목</label>
     <input type="text" id="title" name="title" required>

@@ -26,6 +26,14 @@
         <level value="info" />
     </logger>
     <!-- Root Logger -->
+
+<!--    <logger name="org.mybatis">-->
+<!--        <level value="DEBUG" />-->
+<!--    </logger>-->
+<!--    <logger name="org.apache.ibatis">-->
+<!--        <level value="DEBUG" />-->
+<!--    </logger>-->
+
     <root>
         <priority value="info" />
         <appender-ref ref="console" />

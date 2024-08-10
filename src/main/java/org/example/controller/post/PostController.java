@@ -32,10 +32,15 @@ public class PostController {
     }
 
     @GetMapping("/search")
-    public String postSearch(@RequestParam("query") String query, HttpServletRequest request, Model model) {
+    public String postSearch(
+            @RequestParam("title") String title,
+            @RequestParam("content") String content,
+            HttpServletRequest request,
+            Model model
+    ) {
         log.info("================> 게시글 검색 기능 호출, " + request.getRequestURI());
 
-        model.addAttribute("postList", postRepository.findByTitle(query));
+        model.addAttribute("postList", postRepository.findByCond(title, content));
         return context + "/post-show";
     }
 
@@ -52,6 +57,7 @@ public class PostController {
             HttpServletRequest request
     ) {
         log.info("================> 게시글 추가 기능 호출, " + request.getRequestURI());
+
         postRepository.save(title, content);
 
         return "redirect:/post/v1/show";
