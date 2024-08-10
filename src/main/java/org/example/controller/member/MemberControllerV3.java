@@ -29,7 +29,7 @@ public class MemberControllerV3 {
         log.info("================> 회원 조회 페이지 호출, /member/list");
 
         model.addAttribute("memberList", memberDtoList.getList());
-        return "member-show3";
+        return "/member/member-show3";
     }
 
     @GetMapping("/form")

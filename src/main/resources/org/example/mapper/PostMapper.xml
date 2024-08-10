@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.PostMapper">
+    <select id="findAll" resultType="PostDto">
+        select id, title, content
+        from posts;
+    </select>
+    <select id="findByTitle" resultType="PostDto">
+        select id, title, content
+        from posts
+        WHERE title LIKE CONCAT('%', #{title}, '%');
+    </select>
+    <insert id="save">
+        insert into posts (title, content)
+        values (#{title}, #{content})
+    </insert>
+</mapper>

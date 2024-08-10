@@ -6,7 +6,7 @@
     <title>Member List</title>
 </head>
 <body>
-<%@ include file="header.jsp"%>
+<%@ include file="../header.jsp"%>
 <h1>회원 목록</h1>
 <ul>
     <li><b>ID - Name</b></li>

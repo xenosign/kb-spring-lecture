@@ -27,6 +27,6 @@ public class MemberControllerV4 {
         log.info("================> 회원 조회 페이지 호출, /member/list");
 
         model.addAttribute("memberList", memberRepository.findAll());
-        return "member-show4";
+        return "/member/member-show4";
     }
 }
