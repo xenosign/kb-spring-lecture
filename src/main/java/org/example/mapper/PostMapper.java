@@ -12,5 +12,8 @@ import java.util.List;
 public interface PostMapper {
     List<PostDto> findByCond(@Param("title") String title, @Param("content") String content);
     List<PostDto> findAll();
+    PostDto findById(@Param("id") Long id);
     void save(@Param("title") String title, @Param("content") String content);
+    int delete(@Param("id") Long id);
+    int update(@Param("id") Long id, @Param("title") String title, @Param("content") String content);
 }

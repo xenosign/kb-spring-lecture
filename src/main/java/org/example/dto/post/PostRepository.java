@@ -18,13 +18,23 @@ public class PostRepository {
         return postMapper.findByCond(title, content);
     }
 
+    public PostDto findById(Long id) {
+        return postMapper.findById(id);
+    }
+
     public List<PostDto> findAll() {
         return postMapper.findAll();
     }
 
     public void save(String title, String content) {
-        System.out.println("PostRepository " + title);
-        System.out.println("PostRepository " + content);
         postMapper.save(title, content);
+    }
+
+    public int update(Long id, String title, String content) {
+        return postMapper.update(id, title, content);
+    }
+
+    public int delete(Long id) {
+       return postMapper.delete(id);
     }
 }

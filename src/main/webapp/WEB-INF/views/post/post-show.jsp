@@ -10,7 +10,6 @@
             font-family: Arial, sans-serif;
             margin: 20px;
             padding: 0;
-            background-color: #f4f4f4;
         }
 
         h1 {
@@ -46,7 +45,7 @@
             background-color: #f1f1f1;
         }
 
-        a {
+        .new-button {
             display: inline-block;
             padding: 10px 15px;
             margin-top: 10px;
@@ -57,8 +56,34 @@
             text-align: center;
         }
 
-        a:hover {
+        .new-button:hover .btn {
             background-color: #45a049;
+        }
+
+        .update-button  {
+            background-color: #3093f5;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .update-button:hover {
+            background-color: #3561e5;
+        }
+
+        .delete-button {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .delete-button:hover {
+            background-color: #e53935;
         }
     </style>
 </head>
@@ -73,6 +98,7 @@
     <input type="text" name="content" id="content" placeholder="내용에서 찾을 단어 입력">
     <input type="submit" value="검색">
 </form>
+<br />
 
 <table>
     <thead>
@@ -80,6 +106,7 @@
         <th>ID</th>
         <th>Title</th>
         <th>Content</th>
+        <th>Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -88,11 +115,21 @@
             <td>${post.id}</td>
             <td>${post.title}</td>
             <td>${post.content}</td>
+            <td>
+                <form action="/post/v1/update" method="get" style="display:inline;">
+                    <input type="hidden" name="id" value="${post.id}">
+                    <input type="submit" value="수정" class="update-button">
+                </form>
+                <form action="/post/v1/delete" method="post" style="display:inline;">
+                    <input type="hidden" name="id" value="${post.id}">
+                    <input type="submit" value="삭제" class="delete-button">
+                </form>
+            </td>
         </tr>
     </c:forEach>
     </tbody>
 </table>
 
-<a href="/post/v1/new">새글 작성하기</a>
+<a class="new-button" href="/post/v1/new">새글 작성하기</a>
 </body>
 </html>

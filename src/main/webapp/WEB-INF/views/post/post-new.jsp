@@ -9,7 +9,6 @@
             font-family: Arial, sans-serif;
             margin: 20px;
             padding: 0;
-            background-color: #f4f4f4;
         }
 
         h1 {
@@ -62,7 +61,7 @@
             background-color: #45a049;
         }
 
-        a {
+        .cancel-button {
             display: inline-block;
             padding: 10px 15px;
             margin-top: 10px;
@@ -89,7 +88,7 @@
     <textarea id="content" name="content" required></textarea>
 
     <input type="submit" value="글 작성">
-    <a href="/post/v1/show">취소</a>
+    <a class="cancel-button" href="/post/v1/show">취소</a>
 </form>
 
 </body>
