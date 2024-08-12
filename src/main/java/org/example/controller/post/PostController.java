@@ -8,12 +8,10 @@ import org.example.dto.post.PostRepository;
 import org.example.mapper.PostMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 @Slf4j
@@ -21,8 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/post/v1")
 public class PostController {
     private final PostRepository postRepository;
-    ;
-    private String context = "/post";
+    private String context = "/post/v1";
 
     // 게시글 목록
     @GetMapping("/show")
@@ -31,6 +28,16 @@ public class PostController {
 
         model.addAttribute("postList", postRepository.findAll());
         return context + "/post-show";
+    }
+
+    // REST API 에 맞춘 컨트롤러
+    @CrossOrigin(origins = "*")
+    @GetMapping("/show/rest")
+    @ResponseBody
+    public List<PostDto> postList(HttpServletRequest request) {
+        log.info("================> 게시글 목록 페이지 호출, " + request.getRequestURI());
+
+        return postRepository.findAll();
     }
 
     // 게시글 검색

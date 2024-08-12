@@ -88,10 +88,10 @@
     </style>
 </head>
 <body>
-<%@include file="../header2.jsp"%>
+<%@include file="../../header2.jsp"%>
 <h1>글 목록</h1>
 
-<form action="/post/v1/search" method="get">
+<form action="/post/v2/search" method="get">
     <label for="title">제목 검색</label>
     <input type="text" name="title" id="title" placeholder="제목에서 찾을 단어 입력">
     <label for="content">/ 내용 검색</label>
@@ -116,11 +116,11 @@
             <td>${post.title}</td>
             <td>${post.content}</td>
             <td>
-                <form action="/post/v1/update" method="get" style="display:inline;">
+                <form action="/post/v2/update" method="get" style="display:inline;">
                     <input type="hidden" name="id" value="${post.id}">
                     <input type="submit" value="수정" class="update-button">
                 </form>
-                <form action="/post/v1/delete" method="post" style="display:inline;">
+                <form action="/post/v2/delete" method="post" style="display:inline;">
                     <input type="hidden" name="id" value="${post.id}">
                     <input type="submit" value="삭제" class="delete-button">
                 </form>
@@ -130,6 +130,6 @@
     </tbody>
 </table>
 
-<a class="new-button" href="/post/v1/new">새글 작성하기</a>
+<a class="new-button" href="/post/v2/new">새글 작성하기</a>
 </body>
 </html>

@@ -4,6 +4,8 @@
     <!-- Appenders-->
     <appender name="console" class="org.apache.log4j.ConsoleAppender">
         <param name="Target" value="System.out" />
+        <!-- 로그 한글 -->
+        <param name="Encoding" value="UTF-8" />
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="%-5p: %c - %m%n" />
         </layout>
@@ -27,12 +29,24 @@
     </logger>
     <!-- Root Logger -->
 
-<!--    <logger name="org.mybatis">-->
-<!--        <level value="DEBUG" />-->
-<!--    </logger>-->
-<!--    <logger name="org.apache.ibatis">-->
-<!--        <level value="DEBUG" />-->
-<!--    </logger>-->
+    <logger name="org.mybatis">
+        <level value="DEBUG" />
+    </logger>
+    <logger name="org.apache.ibatis">
+        <level value="DEBUG" />
+    </logger>
+
+    <!-- Hibernate SQL Logger -->
+    <logger name="org.hibernate.SQL">
+        <level value="DEBUG" />
+        <appender-ref ref="console" />
+    </logger>
+
+    <!-- Hibernate Parameter Binding Logger -->
+    <logger name="org.hibernate.type.descriptor.sql.BasicBinder">
+        <level value="TRACE" />
+        <appender-ref ref="console" />
+    </logger>
 
     <root>
         <priority value="info" />
