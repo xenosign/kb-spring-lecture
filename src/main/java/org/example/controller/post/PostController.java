@@ -118,4 +118,15 @@ public class PostController {
 
         return "redirect:/post/v1/show";
     }
+
+    // 에러
+    @GetMapping("/error")
+    public String error(HttpServletRequest request) {
+        log.info("================> 게시글 목록 페이지 호출, " + request.getRequestURI());
+
+        if (true) {
+            throw new RuntimeException("의도적으로 발생시킨 예외");
+        }
+        return context + "/post-show";
+    }
 }
