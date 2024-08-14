@@ -17,23 +17,20 @@ import java.util.List;
 public class CommonExceptionAdvice {
     private String context = "/exception";
 
-    @ExceptionHandler(Exception.class)
-    public String exception(Exception e, Model model) {
-        log.error(e.getMessage());
-
-        List<StackTraceElement> errStackList = Arrays.asList(e.getStackTrace());
-
-        for (StackTraceElement stackTraceElement : errStackList) {
-            log.error(stackTraceElement.toString());
-        }
-
-        model.addAttribute("errStackList", errStackList);
-        return context + "/error-page";
-    }
-
     @ExceptionHandler(NoHandlerFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public String handle404(NoHandlerFoundException e) {
-        return "/exception/404";
+        return context + "/404";
+    }
+
+    @ExceptionHandler(Exception.class)
+    public String exception(Exception e, Model model) {
+        log.error(e.getMessage());
+        e.printStackTrace();
+
+        model.addAttribute("errorMessage", e.getMessage());
+        model.addAttribute("stackTrace", Arrays.asList(e.getStackTrace()));
+
+        return context + "/error-page";
     }
 }
