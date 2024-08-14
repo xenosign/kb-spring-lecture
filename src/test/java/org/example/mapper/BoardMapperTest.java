@@ -1,7 +1,7 @@
 package org.example.mapper;
 
 import lombok.extern.log4j.Log4j;
-import org.example.board.BoardVO;
+import org.example.controller.board.BoardVO;
 import org.example.config.RootConfig;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -11,8 +11,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = { RootConfig.class })

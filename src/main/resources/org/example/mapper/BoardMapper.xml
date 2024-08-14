@@ -15,7 +15,7 @@
         select * from tbl_board where no = #{no}
     </select>
 
-    <insert id="create">
+    <insert id="create" useGeneratedKeys="true" keyProperty="no">
         insert into tbl_board (title, content, writer)
         values (#{title}, #{content}, #{writer})
     </insert>
