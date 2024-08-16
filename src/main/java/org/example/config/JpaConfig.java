@@ -1,7 +1,11 @@
 package org.example.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -15,9 +19,9 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
+@PropertySource("classpath:application.properties")
 @EnableJpaRepositories(basePackages = "org.example.domain.post")
 public class JpaConfig {
-
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
         LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
@@ -33,12 +37,21 @@ public class JpaConfig {
         return new JpaTransactionManager(emf);
     }
 
+    @Value("${hibernate.dialect}")
+    private String dialect;
+    @Value("${hibernate.hbm2ddl.auto}")
+    private String hbm2ddlAuto;
+    @Value("${hibernate.show_sql}")
+    private String hibernateShowSql;
+    @Value("${hibernate.format_sql}")
+    private String formatSql;
+
     private Properties additionalProperties() {
         Properties properties = new Properties();
-        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
-        properties.setProperty("hibernate.hbm2ddl.auto", "update");
-        properties.setProperty("hibernate.show_sql", "true");
-        properties.setProperty("hibernate.format_sql", "true");
+        properties.setProperty("hibernate.dialect", dialect);
+        properties.setProperty("hibernate.hbm2ddl.auto", hbm2ddlAuto);
+        properties.setProperty("hibernate.show_sql", hibernateShowSql);
+        properties.setProperty("hibernate.format_sql", formatSql);
         return properties;
     }
 }
