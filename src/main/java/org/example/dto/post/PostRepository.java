@@ -1,7 +1,7 @@
 package org.example.dto.post;
 
 import lombok.RequiredArgsConstructor;
-import org.apache.ibatis.annotations.Param;
+//import org.apache.ibatis.annotations.Param;
 import org.example.dto.member.MemberDto;
 import org.example.mapper.MemberMapper;
 import org.example.mapper.PostMapper;
