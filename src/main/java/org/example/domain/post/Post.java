@@ -1,8 +1,6 @@
-package org.example.dto.post;
+package org.example.domain.post;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
