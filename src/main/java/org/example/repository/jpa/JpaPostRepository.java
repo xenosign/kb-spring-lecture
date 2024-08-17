@@ -1,7 +1,8 @@
-package org.example.domain.post.jpa;
+package org.example.repository.jpa;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.example.domain.Post;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -26,10 +27,12 @@ public class JpaPostRepository {
         return postList;
     }
 
-    public void delete(Long id) {
+    public int delete(Long id) {
         Post post = em.find(Post.class, id);
         if (post != null) {
             em.remove(post);
+            return 1;
         }
+       return 0;
     }
 }
