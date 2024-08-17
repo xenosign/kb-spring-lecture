@@ -1,4 +1,4 @@
-package org.example.domain.post;
+package org.example.domain.post.jpa;
 
 import lombok.Data;
 

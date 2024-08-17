@@ -1,4 +1,4 @@
-package org.example.domain.post;
+package org.example.domain.post.jpa;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
