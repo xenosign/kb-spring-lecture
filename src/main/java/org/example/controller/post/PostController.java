@@ -27,19 +27,8 @@ public class PostController {
         log.info("================> 게시글 목록 페이지 호출, " + request.getRequestURI());
 
         model.addAttribute("postList", postRepository.findAll());
-        return context + "/post-show";
+        return context + "/post/post-show";
     }
-
-    // REST API 에 맞춘 컨트롤러
-    @CrossOrigin(origins = "*")
-    @GetMapping("/show/rest")
-    @ResponseBody
-    public List<PostDto> postList(HttpServletRequest request) {
-        log.info("================> 게시글 목록 페이지 호출, " + request.getRequestURI());
-
-        return postRepository.findAll();
-    }
-
     // 게시글 검색
     @GetMapping("/search")
     public String postSearch(
