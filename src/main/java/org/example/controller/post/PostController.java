@@ -27,7 +27,7 @@ public class PostController {
         log.info("================> 게시글 목록 페이지 호출, " + request.getRequestURI());
 
         model.addAttribute("postList", postRepository.findAll());
-        return context + "/post/post-show";
+        return context + "/post-show";
     }
     // 게시글 검색
     @GetMapping("/search")

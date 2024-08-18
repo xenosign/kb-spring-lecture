@@ -88,7 +88,7 @@
     </style>
 </head>
 <body>
-<%@include file="../header2.jsp"%>
+<%@include file="../../header2.jsp"%>
 <h1>글 목록</h1>
 
 <form action="/post/v1/search" method="get">

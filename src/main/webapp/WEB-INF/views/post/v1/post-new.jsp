@@ -78,7 +78,7 @@
     </style>
 </head>
 <body>
-<%@include file="../header2.jsp"%>
+<%@include file="../../header2.jsp"%>
 <h1>글 작성</h1>
 <form action="/post/v1/new" method="post">
     <label for="title">제목</label>
