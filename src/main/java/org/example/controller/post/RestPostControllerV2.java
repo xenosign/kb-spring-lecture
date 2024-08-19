@@ -15,7 +15,7 @@ import java.util.List;
 @RestController
 @Slf4j
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "*")
 @RequestMapping("/post/v2/rest")
 public class RestPostControllerV2 {
     private final PostRepository postRepository;
@@ -37,6 +37,12 @@ public class RestPostControllerV2 {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("요청을 처리할 수 없습니다");
     }
 
+    // ResponseEntity 테스트2
+    @GetMapping(value = "/test2", produces = "text/plain;charset=UTF-8")
+    public ResponseEntity<String> test2() {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("잘못된 요청입니다");
+    }
+
     // 게시글 검색
     @GetMapping("/search")
     public ResponseEntity<List<PostDto>> postSearch(
@@ -52,7 +58,7 @@ public class RestPostControllerV2 {
         return ResponseEntity.ok(findList);
     }
 
-    @PostMapping("/delete")
+    @DeleteMapping(value = "/delete", produces = "text/plain;charset=UTF-8")
     public ResponseEntity<String> postDelete(@RequestParam("id") Long id, HttpServletRequest request) {
         log.info("================> 게시글 삭제 기능 호출, " + request.getRequestURI());
 

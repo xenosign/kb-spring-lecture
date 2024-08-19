@@ -1,4 +1,4 @@
-package org.example.repository;
+package org.example.repository.post;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

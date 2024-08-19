@@ -96,7 +96,7 @@ public class RestPostController {
         return "redirect:/post/v1/show";
     }
 
-    @PostMapping("/delete")
+    @DeleteMapping("/delete")
     public String postDelete(@RequestParam("id") String id, HttpServletRequest request) {
         log.info("================> 게시글 삭제 기능 호출, " + request.getRequestURI());
 

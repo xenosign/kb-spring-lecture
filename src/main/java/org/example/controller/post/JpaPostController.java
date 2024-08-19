@@ -2,7 +2,7 @@ package org.example.controller.post;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.repository.JpaPostRepository;
+import org.example.repository.post.JpaPostRepository;
 import org.example.domain.Post;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
