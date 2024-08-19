@@ -3,7 +3,7 @@ package org.example.controller.book;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.domain.BookMybatis;
-import org.example.repository.book.BookRepository;
+import org.example.repository.book.mybatis.BookRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,8 +14,8 @@ import java.util.List;
 @Slf4j
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*")
-@RequestMapping(value = "/book/v1/rest")
-public class BookMyBatisController {
+@RequestMapping(value = "/book/mybatis")
+public class MyBatisBookController {
     private final BookRepository bookRepository;
 
     @GetMapping("/show")
@@ -24,14 +24,25 @@ public class BookMyBatisController {
         return ResponseEntity.ok(bookMybatis);
     }
 
+    @GetMapping("/find/{id}")
+    public ResponseEntity<BookMybatis> findById(@PathVariable Long id) {
+        BookMybatis findBook = bookRepository.findById(id);
+        if (findBook == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(findBook);
+
+    }
+
     @PostMapping("/save")
     public ResponseEntity<BookMybatis> saveBook(@RequestParam("title") String title, @RequestParam("author") String author) {
-        BookMybatis savedBookMybatis = new BookMybatis(null, title, author);
-        int affectedRows = bookRepository.save(savedBookMybatis);
+        BookMybatis newBook = new BookMybatis(null, title, author);
+        int affectedRows = bookRepository.save(newBook);
         if (affectedRows == 0) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         } else {
-            return ResponseEntity.status(HttpStatus.CREATED).body(savedBookMybatis);
+            return ResponseEntity.status(HttpStatus.CREATED).body(newBook);
         }
     }
 

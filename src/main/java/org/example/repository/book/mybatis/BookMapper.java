@@ -1,6 +1,7 @@
-package org.example.repository.book;
+package org.example.repository.book.mybatis;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.example.domain.BookMybatis;
 
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.List;
 @Mapper
 public interface BookMapper {
     public List<BookMybatis> findAll();
+    public BookMybatis findById(@Param("id") Long id);
     public int save(BookMybatis newBookMybatis);
     public int delete(Long id);
 }
