@@ -33,13 +33,9 @@ public class JpaBookRepository {
         return book;
     }
 
-    public int delete(Long id) {
+    public void delete(Long id) {
         Book book = em.find(Book.class, id);
-        if (book != null) {
-            em.remove(book);
-            return 1;
-        }
-        return 0;
+        if (book != null) em.remove(book);
     }
 
 }

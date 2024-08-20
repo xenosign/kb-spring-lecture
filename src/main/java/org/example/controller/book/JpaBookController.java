@@ -36,7 +36,10 @@ public class JpaBookController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<Book> save(@RequestParam("title") String title, @RequestParam("author") String author) {
+    public ResponseEntity<Book> save(
+            @RequestParam("title") String title,
+            @RequestParam("author") String author
+    ) {
         Book newBook = new Book(null, title, author);
         Book addedBook = jpaBookRepository.save(newBook);
         if(addedBook == null) return ResponseEntity.internalServerError().build();
@@ -48,7 +51,7 @@ public class JpaBookController {
         Book book = jpaBookRepository.findById(id);
         if(book == null) return ResponseEntity.notFound().build();
 
-        jpaBookRepository.delete(book.getId());
+        jpaBookRepository.delete(id);
         return ResponseEntity.ok(book);
     }
 }

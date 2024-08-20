@@ -77,7 +77,7 @@ dependencies {
     implementation 'org.hibernate:hibernate-core:5.5.6.Final'
     implementation 'mysql:mysql-connector-java:8.0.33'
 
-//    // 스프링 부트 일때
+    // 스프링 부트 일때
 //    implementation 'org.springframework.boot:spring-boot-starter:2.2.0'
 
     // 로그

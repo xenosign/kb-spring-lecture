@@ -15,7 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*")
 @RequestMapping(value = "/book/mybatis")
-public class MyBatisBookController {
+public class MybatisBookController {
     private final BookRepository bookRepository;
 
     @GetMapping("/show")
@@ -24,19 +24,20 @@ public class MyBatisBookController {
         return ResponseEntity.ok(bookMybatis);
     }
 
-    @GetMapping("/find/{id}")
+    @GetMapping("/show/{id}")
     public ResponseEntity<BookMybatis> findById(@PathVariable Long id) {
         BookMybatis findBook = bookRepository.findById(id);
-        if (findBook == null) {
-            return ResponseEntity.notFound().build();
-        }
+
+        if (findBook == null) return ResponseEntity.notFound().build();
 
         return ResponseEntity.ok(findBook);
-
     }
 
     @PostMapping("/save")
-    public ResponseEntity<BookMybatis> saveBook(@RequestParam("title") String title, @RequestParam("author") String author) {
+    public ResponseEntity<BookMybatis> saveBook(
+            @RequestParam("title") String title,
+            @RequestParam("author") String author
+    ) {
         BookMybatis newBook = new BookMybatis(null, title, author);
         int affectedRows = bookRepository.save(newBook);
         if (affectedRows == 0) {
