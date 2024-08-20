@@ -1,5 +1,6 @@
 package org.example.config;
 
+import org.example.security.config.SecurityConfig;
 import org.springframework.context.annotation.Import;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.filter.CharacterEncodingFilter;
@@ -14,7 +15,7 @@ import javax.servlet.ServletRegistration;
 public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[] { RootConfig.class, JpaConfig.class };
+        return new Class[] { RootConfig.class, JpaConfig.class, SecurityConfig.class  };
     }
 
     @Override
