@@ -12,6 +12,7 @@ import java.util.List;
 @RestController
 @Slf4j
 @RequiredArgsConstructor
+@CrossOrigin("*")
 @RequestMapping("/todo")
 public class JpaTodoController {
     private final TodoRepository todoRepository;
@@ -30,12 +31,28 @@ public class JpaTodoController {
         return ResponseEntity.ok(findTodo);
     }
 
-    @PostMapping
-    public ResponseEntity<Todo> addTodo(@RequestParam("todo") String todo) {
+    @PostMapping("/{todo}")
+    public ResponseEntity<Todo> addTodo(@PathVariable("todo") String todo) {
         Todo newTodo = new Todo(null, todo, false);
         Todo addedTodo = todoRepository.addTodo(newTodo);
         if(addedTodo == null) return ResponseEntity.internalServerError().build();
         return ResponseEntity.ok(addedTodo);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Todo> chagneComplete(@PathVariable Long id) {
+        Todo updatedTodo = todoRepository.findById(id);
+        if(updatedTodo == null) return ResponseEntity.notFound().build();
+        updatedTodo = todoRepository.changeComplete(id);
+        return ResponseEntity.ok(updatedTodo);
+    }
+
+    @PutMapping("/update/{id}/{todo}")
+    public ResponseEntity<Todo> updateTodo(@PathVariable Long id, @PathVariable("todo") String todo) {
+        Todo updatedTodo = todoRepository.findById(id);
+        if(updatedTodo == null) return ResponseEntity.notFound().build();
+        updatedTodo = todoRepository.updateTodo(id, todo);
+        return ResponseEntity.ok(updatedTodo);
     }
 
     @DeleteMapping("/{id}")
@@ -45,22 +62,4 @@ public class JpaTodoController {
         todoRepository.deleteTodo(id);
         return ResponseEntity.ok(todo);
     }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<Todo> chagneComplete(@PathVariable Long id) {
-        Todo updatedTodo = todoRepository.findById(id);
-        if(updatedTodo == null) return ResponseEntity.notFound().build();
-        todoRepository.changeComplete(id);
-        return ResponseEntity.ok(updatedTodo);
-    }
-
-    @PutMapping("/update/{id}/{todo}")
-    public ResponseEntity<Todo> updateTodo(@PathVariable Long id, @PathVariable("todo") String todo) {
-        Todo updatedTodo = todoRepository.findById(id);
-        if(updatedTodo == null) return ResponseEntity.notFound().build();
-        todoRepository.updateTodo(id, todo);
-        return ResponseEntity.ok(updatedTodo);
-    }
-
-
 }
