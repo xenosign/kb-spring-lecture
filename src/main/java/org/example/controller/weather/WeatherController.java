@@ -16,10 +16,23 @@ import org.springframework.web.util.UriComponentsBuilder;
 @RequestMapping("/weather")
 public class WeatherController {
     private final RestTemplate restTemplate = new RestTemplate();
-    private final String API_KEY = "590c223343799397b190b4fa8894ebf2";
     private final String URI = "https://api.openweathermap.org/data/2.5/weather";
     private final String UNITS = "metric";
+    private final String API_KEY = "590c223343799397b190b4fa8894ebf2";
     private final String LANG = "kr";
+
+    @GetMapping("/test/{city}")
+    public ResponseEntity<String> test(@PathVariable String city) {
+        String url = UriComponentsBuilder.fromHttpUrl(URI)
+                .queryParam("q", city)
+                .queryParam("units", UNITS)
+                .queryParam("APPID", API_KEY)
+                .queryParam("lang", LANG)
+                .toUriString();
+        System.out.println("##################" + url);
+        return ResponseEntity.ok(url);
+    }
+
 
     @GetMapping("/{city}")
     public ResponseEntity<WeatherDto> getWeather(@PathVariable String city) {
@@ -29,6 +42,8 @@ public class WeatherController {
                 .queryParam("APPID", API_KEY)
                 .queryParam("lang", LANG)
                 .toUriString();
+
+        System.out.println("##################" + url);
 
         WeatherDto weather = restTemplate.getForObject(url, WeatherDto.class);
         return ResponseEntity.ok(weather);
@@ -45,6 +60,9 @@ public class WeatherController {
                 .queryParam("APPID", API_KEY)
                 .queryParam("lang", LANG)
                 .toUriString();
+
+
+        System.out.println("##################" + url);
 
         ForecastDto forecast = restTemplate.getForObject(url, ForecastDto.class);
         return ResponseEntity.ok(forecast);
