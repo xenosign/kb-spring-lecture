@@ -56,6 +56,11 @@ public class UserController {
         return context + "/login";
     }
 
+    @GetMapping("/login-security")
+    public String loginSecurityPage() {
+        return context + "/security/login-security";
+    }
+
     @PostMapping("/login")
     public String login(@RequestParam("username") String username, @RequestParam String password, Model model, HttpSession session) {
         User user = userService.findByUsername(username);
@@ -75,15 +80,13 @@ public class UserController {
         return context + "/login-success";
     }
 
-
-
-    @GetMapping("/login-success")
+    @GetMapping("/member")
     public String loginSuccessPage(Model model, Principal principal) {
         if (principal != null) {
             UserDetails userDetails = customUserDetailsService.loadUserByUsername(principal.getName());
             model.addAttribute("user", userDetails);
         }
-        return context + "/login-success2";
+        return context + "/member";
     }
 
     @GetMapping("/login-failed")

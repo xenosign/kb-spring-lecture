@@ -6,7 +6,7 @@
 </head>
 <body>
 <%@include file="../header2.jsp"%>
-    <h1>로그인 실패</h1>
-    <a href="/user/login">로그인 페이지로 이동</a>
+<h1>SECURITY ADMIN 페이지 입니다</h1>
+<a href="/security/login">로그인 페이지로 이동</a>
 </body>
 </html>

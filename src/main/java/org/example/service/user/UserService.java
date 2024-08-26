@@ -20,10 +20,12 @@ public class UserService {
         return passwordEncoder.matches(rawPassword, user.getPassword());
     }
 
-    public void save(User user) {
+    public User save(User user) {
+        if (user.getRoles() == null) user.setRoles("ROLE_MEMBER");
+
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
-        user.setRoles("ROLE_MEMBER");
         userRepository.save(user);
+        return user;
     }
 }

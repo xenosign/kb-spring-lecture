@@ -8,6 +8,6 @@
 <%@include file="../header2.jsp"%>
     <h1>로그인 성공</h1>
     <h2>${username} 님 환영 합니다.</h2>
-    <a href="/login/logout">로그아웃</a>
+    <a href="/user/logout">로그아웃</a>
 </body>
 </html>

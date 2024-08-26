@@ -4,13 +4,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>로그인 성공</title>
+    <title>회원 페이지</title>
 </head>
 <body>
 <%@include file="../header2.jsp"%>
-<h1>로그인 성공</h1>
+
 
 <sec:authorize access="isAuthenticated()">
+    <h1>SECURITY 로그인 성공</h1>
     <h2>사용자 정보</h2>
     <p>사용자명: <sec:authentication property="name"/></p>
     <p>권한:
@@ -22,9 +23,8 @@
 </sec:authorize>
 
 <sec:authorize access="!isAuthenticated()">
+    <h1>SECURITY 로그인 실패</h1>
     <p>로그인 정보를 불러올 수 없습니다. 다시 로그인해주세요.</p>
 </sec:authorize>
-
-<a href="/login/logout">로그아웃</a>
 </body>
 </html>
