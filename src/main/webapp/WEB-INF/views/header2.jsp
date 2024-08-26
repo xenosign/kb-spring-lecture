@@ -30,5 +30,7 @@
     <a href="/security/member">회원 정보</a>
     <a href=<%=KAKAO_URI%>>
         카카오 로그인
-    </a>
+    </a><a href=<%=KAKAO_URI%>>
+    카카오 로그아웃
+</a>
 </header>

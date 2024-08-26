@@ -3,6 +3,8 @@ package org.example.service.oauth;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
@@ -10,9 +12,12 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 @Service
+@PropertySource("classpath:application.properties")
 public class KakaoOauthService {
-    private String REST_API_KEY = "fe2ce67ae1aa8d5ab53a015eb2a03bea";
-    private String REDIRECT_URI = "http://localhost:8080/kakao/login";
+    @Value("${kakao.rest.api.key}")
+    private String REST_API_KEY;
+    @Value("${kakao.redirect.uri}")
+    private String REDIRECT_URI;
 
     public String getAccessToken(String authorize_code) {
         String access_Token = "";
