@@ -19,9 +19,9 @@ import java.security.Principal;
 @RequestMapping("/user")
 public class UserController {
     private final UserService userService;
-    private final CustomUserDetailsService customUserDetailsService;
-
     private final String context = "/user";
+
+    private final CustomUserDetailsService customUserDetailsService;
 
     @GetMapping("/register")
     public String registerPage() {
@@ -56,20 +56,6 @@ public class UserController {
         return context + "/login";
     }
 
-    @GetMapping("/login-success")
-    public String loginSuccessPage(Model model, Principal principal) {
-        if (principal != null) {
-            UserDetails userDetails = customUserDetailsService.loadUserByUsername(principal.getName());
-            model.addAttribute("user", userDetails);
-        }
-        return context + "/login-success2";
-    }
-
-    @GetMapping("/login-failed")
-    public String loginFailPage() {
-        return context + "/login-failed2";
-    }
-
     @PostMapping("/login")
     public String login(@RequestParam("username") String username, @RequestParam String password, Model model, HttpSession session) {
         User user = userService.findByUsername(username);
@@ -88,6 +74,24 @@ public class UserController {
         session.setAttribute("loginUser", user);
         return context + "/login-success";
     }
+
+
+
+    @GetMapping("/login-success")
+    public String loginSuccessPage(Model model, Principal principal) {
+        if (principal != null) {
+            UserDetails userDetails = customUserDetailsService.loadUserByUsername(principal.getName());
+            model.addAttribute("user", userDetails);
+        }
+        return context + "/login-success2";
+    }
+
+    @GetMapping("/login-failed")
+    public String loginFailPage() {
+        return context + "/login-failed2";
+    }
+
+
 
     @GetMapping("/logout")
     public String logout(HttpSession session) {

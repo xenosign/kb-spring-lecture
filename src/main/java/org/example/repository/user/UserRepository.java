@@ -1,5 +1,6 @@
 package org.example.repository.user;
 
+import lombok.RequiredArgsConstructor;
 import org.example.domain.User;
 import org.springframework.stereotype.Repository;
 
@@ -10,9 +11,9 @@ import java.util.List;
 
 @Repository
 @Transactional
+@RequiredArgsConstructor
 public class UserRepository {
-    @PersistenceContext
-    private EntityManager em;
+    private final EntityManager em;
 
     public User findByUsername(String username) {
         String jpql = "SELECT u FROM User u WHERE u.username = :username";
