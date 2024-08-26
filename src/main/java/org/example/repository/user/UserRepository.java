@@ -16,7 +16,6 @@ public class UserRepository {
     private final EntityManager em;
 
     public User findByUsername(String username) {
-        System.out.println("@@@@@@@@@@@@@@" + username);
         String jpql = "SELECT u FROM User u WHERE u.username = :username";
 
         List<User> users = em.createQuery(jpql, User.class)
