@@ -19,7 +19,7 @@ import javax.servlet.ServletRegistration;
 
 @Configuration
 //@Import(UserConfig.class)
-@Import(SecurityConfig.class)
+//@Import(SecurityConfig.class)
 public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
