@@ -2,7 +2,6 @@ package org.example.controller.user;
 
 import lombok.RequiredArgsConstructor;
 import org.example.domain.User;
-import org.example.security.service.CustomUserDetailsService;
 import org.example.service.user.UserService;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -20,8 +19,6 @@ import java.security.Principal;
 public class UserController {
     private final UserService userService;
     private final String context = "/user";
-
-    private final CustomUserDetailsService customUserDetailsService;
 
     @GetMapping("/register")
     public String registerPage() {
@@ -80,14 +77,14 @@ public class UserController {
         return context + "/login-success";
     }
 
-    @GetMapping("/member")
-    public String loginSuccessPage(Model model, Principal principal) {
-        if (principal != null) {
-            UserDetails userDetails = customUserDetailsService.loadUserByUsername(principal.getName());
-            model.addAttribute("user", userDetails);
-        }
-        return context + "/member";
-    }
+//    @GetMapping("/member")
+//    public String loginSuccessPage(Model model, Principal principal) {
+//        if (principal != null) {
+//            UserDetails userDetails = customUserDetailsService.loadUserByUsername(principal.getName());
+//            model.addAttribute("user", userDetails);
+//        }
+//        return context + "/member";
+//    }
 
     @GetMapping("/login-failed")
     public String loginFailPage() {

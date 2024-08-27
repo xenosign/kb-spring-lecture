@@ -17,7 +17,6 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class CustomUserDetailsService implements UserDetailsService {
-
     private final UserRepository userRepository;
 
     @Override
@@ -33,10 +32,6 @@ public class CustomUserDetailsService implements UserDetailsService {
         for (String role : roles) {
             authorities.add(new SimpleGrantedAuthority(role.trim()));
         }
-
-//        List<SimpleGrantedAuthority> authorities = Arrays.stream(user.getRoles().split(","))
-//                .map(authority -> new SimpleGrantedAuthority(authority.trim()))
-//                .collect(Collectors.toList());
 
         return new org.springframework.security.core.userdetails.User(
                 user.getUsername(),

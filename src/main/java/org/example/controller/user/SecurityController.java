@@ -29,6 +29,11 @@ public class SecurityController {
         return context + "/login";
     }
 
+    @GetMapping("/login-failed")
+    public String loginFailPage() {
+        return context + "/login-failed";
+    }
+
     @GetMapping("/member")
     public String loginSuccessPage(Model model, Principal principal) {
         if (principal == null) {
@@ -37,11 +42,6 @@ public class SecurityController {
         UserDetails userDetails = customUserDetailsService.loadUserByUsername(principal.getName());
         model.addAttribute("user", userDetails);
         return context + "/member";
-    }
-
-    @GetMapping("/login-failed")
-    public String loginFailPage() {
-        return context + "/login-failed";
     }
 
     @GetMapping("/admin")
