@@ -28,15 +28,5 @@
     <form id="logout-form" action="/security/logout" method="post" style="display: none;">
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     </form>
+    <a href=<%=KAKAO_URI%>>카카오 로그인</a>
 </header>
-
-
-
-<%--<a href="/security/admin">admin</a>--%>
-<%--<a href="/security/member">회원 정보</a>--%>
-<%--<a href=<%=KAKAO_URI%>>--%>
-<%--    카카오 로그인--%>
-<%--</a>--%>
-<%--<a href=<%=KAKAO_URI%>>--%>
-<%--    카카오 로그아웃--%>
-<%--</a>--%>

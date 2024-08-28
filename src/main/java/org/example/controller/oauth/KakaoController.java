@@ -32,8 +32,6 @@ public class KakaoController {
         JsonObject userInfo = kakaoLoginService.getUserInfo(accessToken);
 
         if (userInfo != null) {
-            String kakaoId = userInfo.get("id").getAsString();
-            String email = userInfo.has("email") ? userInfo.get("email").getAsString() : kakaoId + "@kakao.com";
             String nickname = userInfo.get("nickname").getAsString();
 
             if (userService.findByUsername(nickname) == null) {
