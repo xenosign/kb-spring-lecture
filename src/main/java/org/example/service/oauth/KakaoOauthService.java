@@ -13,8 +13,8 @@ import java.net.URL;
 
 @Service
 public class KakaoOauthService {
-    private String REST_API_KEY = "fe2ce67ae1aa8d5ab53a015eb2a03bea";
-    private String REDIRECT_URI = "http://localhost:8080/kakao/login";
+    private String REST_API_KEY = "";
+    private String REDIRECT_URI = "";
 
     public String getAccessToken(String authorize_code) {
         String access_Token = "";

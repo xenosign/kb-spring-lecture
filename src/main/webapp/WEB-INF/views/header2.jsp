@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    String REST_API_KEY = "fe2ce67ae1aa8d5ab53a015eb2a03bea";
-    String REDIRECT_URI = "http://localhost:8080/kakao/login";
+    String REST_API_KEY = "";
+    String REDIRECT_URI = "";
     String KAKAO_URI = "https://kauth.kakao.com/oauth/authorize?client_id=" + REST_API_KEY + "&redirect_uri=" + REDIRECT_URI + "&response_type=code";
 %>
 <header>
