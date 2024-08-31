@@ -17,6 +17,7 @@ public class KakaoOauthService {
     private String REDIRECT_URI = "";
 
     public String getAccessToken(String authorize_code) {
+        // KEY 삽입 필요
         String access_Token = "";
         String refresh_Token = "";
         String reqURL = "https://kauth.kakao.com/oauth/token";
