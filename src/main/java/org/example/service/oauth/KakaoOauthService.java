@@ -59,6 +59,7 @@ public class KakaoOauthService {
                 access_Token = jsonObject.get("access_token").getAsString();
                 refresh_Token = jsonObject.get("refresh_token").getAsString();
 
+                System.out.println("토큰 발급 내용");
                 System.out.println("access_token : " + access_Token);
                 System.out.println("refresh_token : " + refresh_Token);
             } else {
