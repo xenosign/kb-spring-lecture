@@ -37,7 +37,7 @@ public class KakaoOauthService {
             bw.write(sb.toString());
             bw.flush();
 
-             System.out.println("ACCESS TOKEN 요청 URL : " + sb);
+            System.out.println("ACCESS TOKEN 요청 URL : " + sb);
 
             int responseCode = conn.getResponseCode();
             System.out.println("ACCESS TOKEN 응답 코드 : " + responseCode);
@@ -116,7 +116,7 @@ public class KakaoOauthService {
                 String nickname = properties.get("nickname").getAsString();
                 System.out.println("카카오 닉네임 : " + nickname);
                 userInfo.addProperty("nickname", nickname);
-            }            
+            }
 
             br.close(); // 자원 닫기
         } catch (IOException e) {
