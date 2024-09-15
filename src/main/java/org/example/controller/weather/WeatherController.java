@@ -17,7 +17,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 public class WeatherController {
     private final RestTemplate restTemplate = new RestTemplate();
     private final String URI = "https://api.openweathermap.org/data/2.5/weather";
-    // 여기에 본인의 API 키를 넣으시면 됩니다!!
     private final String API_KEY = "";
     private final String UNITS = "metric";
     private final String LANG = "kr";
