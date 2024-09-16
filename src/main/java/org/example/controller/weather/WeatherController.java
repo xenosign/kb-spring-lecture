@@ -17,6 +17,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 public class WeatherController {
     private final RestTemplate restTemplate = new RestTemplate();
     private final String URI = "https://api.openweathermap.org/data/2.5/weather";
+    // API 입력 필요
     private final String API_KEY = "";
     private final String UNITS = "metric";
     private final String LANG = "kr";
