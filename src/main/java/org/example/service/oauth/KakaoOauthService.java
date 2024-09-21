@@ -37,7 +37,7 @@ public class KakaoOauthService {
             bw.write(sb.toString());
             bw.flush();
 
-//            System.out.println("ACCESS TOKEN 요청 URL : " + sb);
+            System.out.println("ACCESS TOKEN 요청 URL : " + sb);
 
             int responseCode = conn.getResponseCode();
             System.out.println("ACCESS TOKEN 응답 코드 : " + responseCode);
