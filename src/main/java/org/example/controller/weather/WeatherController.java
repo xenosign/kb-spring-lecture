@@ -29,7 +29,6 @@ public class WeatherController {
                 .queryParam("APPID", API_KEY)
                 .queryParam("lang", LANG)
                 .toUriString();
-        System.out.println("##################" + url);
         return ResponseEntity.ok(url);
     }
 
@@ -43,8 +42,6 @@ public class WeatherController {
                 .queryParam("lang", LANG)
                 .toUriString();
 
-        System.out.println("##################" + url);
-
         WeatherDto weather = restTemplate.getForObject(url, WeatherDto.class);
         return ResponseEntity.ok(weather);
     }
@@ -53,16 +50,12 @@ public class WeatherController {
 
     @GetMapping("/forecast/{city}")
     public ResponseEntity<ForecastDto> getForecast(@PathVariable String city) {
-        System.out.println("#######################" + city);
         String url = UriComponentsBuilder.fromHttpUrl(FORECAST_URI)
                 .queryParam("q", city)
                 .queryParam("units", UNITS)
                 .queryParam("APPID", API_KEY)
                 .queryParam("lang", LANG)
                 .toUriString();
-
-
-        System.out.println("##################" + url);
 
         ForecastDto forecast = restTemplate.getForObject(url, ForecastDto.class);
         return ResponseEntity.ok(forecast);
