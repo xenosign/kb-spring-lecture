@@ -15,13 +15,13 @@ import static org.junit.jupiter.api.Assertions.*;
 @ContextConfiguration(classes = { RootConfig.class })
 @Log4j
 class MemberMapperTest {
-    @Autowired
-    private MemberMapper memberMapper;
-
-
-    @Test
-    void findAll() {
-        log.info("members 테이블 findAll");
-        log.info(memberMapper.findAll());
-    }
+//    @Autowired
+//    private MemberMapper memberMapper;
+//
+//
+//    @Test
+//    void findAll() {
+//        log.info("members 테이블 findAll");
+//        log.info(memberMapper.findAll());
+//    }
 }

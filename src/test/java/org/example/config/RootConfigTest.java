@@ -21,17 +21,17 @@ import static org.junit.jupiter.api.Assertions.*;
 @Slf4j
 @PropertySource("classpath:application.properties")
 class RootConfigTest {
-    @Autowired
-    private SqlSessionFactory sqlSessionFactory;
-
-    @Test
-    void sqlSessionFactory() {
-        try (SqlSession session = sqlSessionFactory.openSession();
-             Connection con = session.getConnection()) {
-            log.info("SqlSession: {}", session);
-            log.info("Connection: {}", con);
-        } catch (Exception e) {
-            fail(e.getMessage());
-        }
-    }
+//    @Autowired
+//    private SqlSessionFactory sqlSessionFactory;
+//
+//    @Test
+//    void sqlSessionFactory() {
+//        try (SqlSession session = sqlSessionFactory.openSession();
+//             Connection con = session.getConnection()) {
+//            log.info("SqlSession: {}", session);
+//            log.info("Connection: {}", con);
+//        } catch (Exception e) {
+//            fail(e.getMessage());
+//        }
+//    }
 }

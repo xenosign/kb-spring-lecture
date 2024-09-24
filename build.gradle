@@ -25,6 +25,11 @@ tasks.withType(JavaCompile) {
 }
 
 dependencies {
+    implementation 'org.springframework:spring-webmvc:4.3.30.RELEASE'  // 사용 중인 스프링 버전에 맞게 조정하세요
+    implementation 'javax.servlet:javax.servlet-api:3.1.0'
+    implementation 'javax.servlet.jsp:javax.servlet.jsp-api:2.3.3'
+    implementation 'javax.servlet:jstl:1.2'
+
     // 스프링
     implementation("org.springframework:spring-context:${springVersion}") {
         exclude group: 'commons-logging', module: 'commons-logging'
@@ -88,7 +93,7 @@ dependencies {
     implementation("org.springframework.security:spring-security-config:${springSecurityVersion}")
     implementation("org.springframework.security:spring-security-core:${springSecurityVersion}")
     implementation("org.springframework.security:spring-security-taglibs:${springSecurityVersion}")
-    
+
     // 암호화
     implementation 'org.springframework.security:spring-security-crypto'
 
@@ -105,5 +110,12 @@ test {
 }
 
 war {
-    archiveName = "${rootProject.name}.war"
+    archiveFileName = "${rootProject.name}.war"
+}
+
+sourceSets {
+    main {
+        java.srcDirs = ['src/main/java']
+        resources.srcDirs = ['src/main/resources']
+    }
 }
