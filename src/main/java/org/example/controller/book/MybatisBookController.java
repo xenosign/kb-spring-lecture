@@ -20,7 +20,6 @@ public class MybatisBookController {
 
     @GetMapping("/show")
     public ResponseEntity<List<BookMybatis>> findAll() {
-        System.out.println("@@@@");
         List<BookMybatis> bookMybatis = bookRepository.findAll();
         return ResponseEntity.ok(bookMybatis);
     }
