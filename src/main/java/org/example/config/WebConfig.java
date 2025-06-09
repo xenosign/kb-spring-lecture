@@ -1,10 +1,5 @@
 package org.example.config;
 
-//import org.example.security.SecurityConfig;
-
-import org.example.security.UserConfig;
-//import org.example.security.config.SecurityConfig;
-import org.example.security.config.SecurityConfig;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.web.context.WebApplicationContext;
@@ -18,19 +13,19 @@ import org.springframework.web.servlet.DispatcherServlet;
 import javax.servlet.ServletRegistration;
 
 @Configuration
-//@Import(UserConfig.class)
-@Import(SecurityConfig.class)
 public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
         return new Class[]{
-                RootConfig.class, JpaConfig.class
+                RootConfig.class
         };
     }
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[]{ServletConfig.class};
+        return new Class[]{
+                ServletConfig.class
+        };
     }
 
     // 스프링의 FrontController인 DispatcherServlet이 담당할 Url 매핑 패턴, / : 모든 요청에 대해 매핑
